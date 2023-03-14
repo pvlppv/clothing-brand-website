@@ -1,0 +1,82 @@
+:root {
+    --pink-color: #E898FF;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+}
+
+.login-section {
+    position: relative;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 94.66px;
+}
+
+.login {
+    width: 30%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.login-text {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-group-login {
+    text-align: start;
+    font-size: 17px;
+    font-weight: 100;
+    width: 100%;
+}
+
+.form-control-login {
+    font-size: 17px;
+    text-align: start;
+    width: 100%;
+    padding: 5px 10px;    
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #000000;
+    background-color: transparent;
+}
+
+.form-control-login:focus {
+    outline: none;
+}
+
+.login-submit {
+    width: 40%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.signbtn {
+    text-decoration: none;
+    color: #000000;
+    width: 100%;
+    text-align: center;
+}
+
+

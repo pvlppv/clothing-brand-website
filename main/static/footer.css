@@ -1,0 +1,159 @@
+:root {
+    --pink-color: #E898FF;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+}
+
+footer {
+    margin-top: auto; 
+}
+
+.footer-content {
+    background-color: #E898FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 35px 0px;
+    gap: 20px;
+}
+
+.footer-content h3 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 90%;
+    transition: text-shadow 2s ease-in-out;
+}
+
+.footer-content .addition a {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 2px 0px;
+    display: flex;
+    flex-direction: column;  
+    position: relative;
+}
+
+.footer-content .addition a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+
+.footer-content .addition a:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.socials a {
+    text-decoration: none;
+}
+
+.socials a i {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+.footer-bottom {
+    background-color: #FFFFFF;
+    color: #E898FF;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    font-weight: 600;
+    word-spacing: 2px;
+}
+
+.politika {
+    padding-top: 130px;
+    padding-bottom: 100px;
+    font-size: 16px; 
+    line-height: 1.5;
+    text-align: justify; 
+    margin: 0 auto;
+    width: 80%;
+    font-size: 17px;
+    font-weight: var(--fw-regular);
+    line-height: 180%;
+}
+
+.politika span {
+    font-weight: bold;
+}
+
+.vozvrat {
+    padding-top: 130px;
+    padding-bottom: 100px;
+    font-size: 16px; 
+    line-height: 1.5;
+    text-align: justify; 
+    margin: 0 auto;
+    width: 80%;
+    font-size: 17px;
+    font-weight: var(--fw-regular);
+    line-height: 180%;
+}
+
+.vozvrat span {
+    font-weight: bold;
+}
+
+.dostavka {
+    padding-top: 130px;
+    padding-bottom: 150px;
+    font-size: 16px; 
+    line-height: 1.5;
+    text-align: justify; 
+    margin: 0 auto;
+    width: 80%;
+    font-size: 17px;
+    font-weight: var(--fw-regular);
+    line-height: 180%;
+}
+
+.dostavka a {
+    color: var(--pink-color);
+}
+
+@media only screen and (max-width: 900px) {
+    .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

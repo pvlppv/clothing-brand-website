@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block title %}SHOP{% endblock %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<!-- <section class="shop-section">
+    <div class="shop-container">
+        <div class="section-title">
+            <div class="shop-content">
+                {% for product in products %}
+                <a class="product-box" href="{{url_for('views.product_page', product_url=product.url)}}">
+                    <img src="static/images/rectangle.svg" alt="" class="rectangle">
+                    <img src="static/images/{{ product.img }}" alt="" class="product-img">
+                    <div class="product-title">{{ product.name }}</div>
+                    <div class="product-price">{{ product.price_new }}</div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section> -->
+{% endblock %}

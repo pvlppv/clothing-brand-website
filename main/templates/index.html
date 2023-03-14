@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- =============== TITLE =============== -->
+    <title>{% block title %} FRANCHISE BRAND {% endblock%}</title>
+    <!-- =============== X-ICON =============== -->
+    <link rel="icon" type="image/x-icon" href="static/images/logo_white.svg">
+    <!-- =============== ICONS =============== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- =============== CSS =============== -->
+    <link rel="stylesheet" href="static/header.css">
+    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="static/footer.css">
+    <link rel="stylesheet" href="static/login.css">
+    <link rel="stylesheet" href="static/sign-up.css">
+    
+</head> 
+
+<body>
+    <div class="container">
+        {% block preloader %}
+        <div class="preloader" id="preloader">
+            <div class="preloader-content">
+                <img src="static/images/logo.svg" alt="preloader_logo">
+            </div>
+        </div>
+        {% endblock %}
+
+        {% block header %}
+        <header class="header">
+            <div class="left-section">
+                <div class="mobile-toggle">
+                    <i class="bx bx-menu bx-tada-hover"></i>
+                </div>
+                <div class="logo">
+                    <a href="{{url_for('views.home_page')}}"><img src="static/images/logo.svg" alt="Logo" class="logo"></a>
+                </div>
+                <nav>
+                    <ul class="ul" id="ul">
+                        <li><a class="shop">SHOP</a></li>
+                        <li><a class="gallery">GALLERY</a></li>
+                        <li><a class="contacts" >CONTACTS</a></li>
+                    </ul>
+                </nav>  
+            </div>
+            <div class="logo_2">
+                <a href="{{url_for('views.home_page')}}"><img src="static/images/logo.svg" alt="Logo" class="logo_2"></a>
+            </div>
+            <div class="right-section">
+                <div class="cart-icon">
+                    <i class='bx bx-shopping-bag bx-tada-hover'>
+                        <div class="cart-number">
+                        </div>
+                    </i>                    
+                </div>
+                <div class="whole-cart-window">
+                    <div class="cart">
+                        <h2 class="cart-title">YOUR CART</h2>
+                        <div class="cart-item-info"></div>
+                        <div class="cart-submit"></div>
+                        <h1 class="cart-empty" hidden>Empty.</h1>
+                    </div>   
+                </div>
+
+                <!-- {% if user.is_authenticated %}
+                <div class="logout-button">
+                    <a href="{{url_for('auth.logout')}}">
+                        <button type="button" class="logout-button">
+                            <img src="" alt="">
+                            LOGOUT
+                        </button>
+                    </a>
+                </div>
+                {% else %}
+                <div class="login-button">
+                    <a href="{{url_for('auth.login')}}">
+                        <i class="bx bx-user"></i>
+                    </a>
+                </div>
+                {% endif %} -->
+            </div>
+        </header>
+        {% endblock %}
+
+        {% block content %} 
+        <main>
+
+            <section class="hero">
+                <div class="welcome-message">FRANCHISE<br>BRAND
+                    <div class="welcome-message-inside">THAT IS FRANCHISE THAT IS FRANCHISE</div>
+                    <img src="static/images/logo.svg" alt="" class="welcome-logo">
+                </div>
+            </section>
+
+            <section class="new-drop">
+                <div class="marquee">
+                    <p class="marquee-item">NEW DROP</p>
+                    <p class="marquee-item">NEW DROP</p>
+                    <p class="marquee-item">NEW DROP</p>
+                    <p class="marquee-item">NEW DROP</p>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                </div>
+                
+                <div class="new">
+                    
+                    <div class="new-grid">
+                        {% for new_drop in new_drop %}
+                        <a href="{{ url_for('views.product_page_2', new_drop_url=new_drop.url) }}">
+                            <img src="static/images/{{ new_drop.img }}" alt="sakura-img" class="new-img">
+                        </a>
+                        {% endfor %}
+                    </div>
+                    
+                    {% for new_drop in new_drop %}
+                    <div class="new-text-one">{{ new_drop.text }}</div>
+                    <div class="new-text-two">{{ new_drop.text }}</div>
+                    <div class="new-text-three">{{ new_drop.text }}</div>
+                    <div class="new-text-four">{{ new_drop.text }}</div>
+                    <div class="new-text-five">{{ new_drop.text }}</div>
+                    <div class="new-text-six">{{ new_drop.text }}</div>
+                    <div class="new-img">
+                    </div>
+                    {% endfor %}     
+                </div>
+                
+                <div class="marquee">
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                    <div class="marquee-item">NEW DROP</div>
+                </div>
+            </section>
+
+            <section class="shop-container">
+                <div class="section-title">
+                    <div class="shop-content">
+                        {% for product in products[::-1] %}
+                        <a class="product-box" href="{{ url_for('views.product_page', product_url=product.url) }}">
+                            <img src="static/images/rectangle.svg" alt="" class="rectangle">
+                            <img src="static/images/{{ product.img }}" alt="" class="product-img">
+                            <div class="product-title">{{ product.name }}</div>
+                            <div class="product-price">{{ product.price_new }} р.</div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="gallery-container">
+                    <div class="gallery-you">
+                    <h1>YOU</h1>
+                    </div>
+                    {% for gallery in galleries[::-1] %}
+                    <div class="gallery-img">
+                    <img data-src="static/images/{{ gallery.img }}" alt="">
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="popup-img">
+                    <img src="" alt="">
+                </div>    
+            </div>
+            
+            </section>
+              
+        </main>    
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="footer-content">
+                <h3 class="logo-text">FRANCHISE BRAND</h3>
+                <div class="addition">
+                    <a href="{{url_for('views.dostavka')}}" target="_blank">Доставка</a>
+                    <a href="{{url_for('views.vozvrat')}}" target="_blank">Условия возврата товара</a>
+                    <a href="{{url_for('views.politika')}}" target="_blank">Политика конфиденциальности</a>
+                </div>
+                <ul class="socials">
+                    <li><a href="https://www.instagram.com/thatisfranchise/" target="_blank"><i class="bx bxl-instagram-alt bx-tada" id="social-network-icon"></i></a></li>
+                    <li><a href="https://vk.com/thatisfranchise" target="_blank"><i class='bx bxl-vk bx-tada'></i></a></li>
+                    <li><a href="https://t.me/thatisfranchise" target="_blank"><i class="bx bxl-telegram bx-tada" id="social-network-icon"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;2023 FRANCHISE BRAND.</p>
+                <p>Created by <span>Arina Leen</span>.</p>
+            </div>
+        </footer>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="danger" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {%else%}
+        <div class="success" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        {%endfor%}
+        {%endif%}
+        {%endwith%}
+    </div>
+    <!-- =============== SCRIPTS =============== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ url_for('static', filename='navbar.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='logo-shine.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='preloader.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='products.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='gallery.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='cart.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+    <script>
+        const myLazyLoad = new LazyLoad ({
+            elements_selector: 'img'
+        })
+    </script>
+    
+</body>
+</html>

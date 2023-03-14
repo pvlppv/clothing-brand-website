@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+{% block title %}КОРЗИНА{% endblock %}
+{%block header%}
+{%endblock%}
+
+{% block content %}
+<form method="POST">
+<table id="myTable">
+  <tr>
+    <th>name</th>    
+    <th>size</th>
+    <th>quantity</th>
+    <th>price</th>
+    
+  </tr>
+{% for product in products %}
+  <tr id="row">
+    <td id="name" name="name">{{product.name}}</td>
+    <td id="size" name="size">
+      <select id="size">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+    </td>
+    <td contenteditable='true' type="number" id="quantity" name="quantity">
+      <!-- <select id="quantity_sel">
+       
+        <option type="number" max-value></option>
+      </select> -->
+    </td>
+    <td class="count-me">{{product.price_new}}</td>
+
+    <td><button onClick="onClickRemove(this)">Remove</button></td>
+
+    
+    
+  </tr>
+{% endfor %}
+</table>
+
+<span id="val"></span>
+
+
+<style>.tinkoffPayRow{display:block;margin:1%;width:160px;}</style>
+<script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
+<form name="TinkoffPayForm">
+    <input class="tinkoffPayRow" type="hidden" name="terminalkey" value="TinkoffBankTest">
+    <input class="tinkoffPayRow" type="hidden" name="frame" value="true">
+    <input class="tinkoffPayRow" type="hidden" name="language" value="ru"> 
+    <input class="tinkoffPayRow" type="text" placeholder="Сумма заказа" name="amount" required>
+    <input class="tinkoffPayRow" type="text" placeholder="Номер заказа" name="order">
+    <input class="tinkoffPayRow" type="text" placeholder="Описание заказа" name="description">
+    <input class="tinkoffPayRow" type="text" placeholder="ФИО плательщика" name="name">
+    <input class="tinkoffPayRow" type="text" placeholder="E-mail" name="email" required>
+    <input class="tinkoffPayRow" type="text" placeholder="Контактный телефон" name="phone" required>
+    <input class="tinkoffPayRow" type="hidden" name="receipt" value="">
+    <input class="tinkoffPayRow" type="button" onclick="tinkoffPayFunction(this)"  value="Оплатить">
+</form>
+
+
+
+
+
+                            
+<script>
+updateSubTotal(); // Initial call
+
+function updateSubTotal() {
+  var table = document.getElementById("myTable");
+  let subTotal = Array.from(table.rows).slice(1).reduce((total, row) => {
+    return total + parseFloat(row.cells[3].innerHTML);
+  }, 0);
+  document.getElementById("val").innerHTML = "SubTotal = Р" + subTotal.toFixed(2);
+}
+
+function onClickRemove(deleteButton) {
+  let row = deleteButton.parentElement.parentElement;
+  row.parentNode.removeChild(row);
+  updateSubTotal(); // Call after delete
+}
+
+</script>
+
+
+<script type="text/javascript">
+  function tinkoffPayFunction(target) {
+          let form = target.parentElement;
+          let name = form.description.value || "Оплата";
+          let amount = form.amount.value;
+          let email = form.email.value;
+          let phone = form.phone.value;
+
+          if (amount && email && phone) {
+              form.receipt.value = JSON.stringify({
+                  "Email": email,
+                  "Phone": phone,
+                  "EmailCompany": "mail@mail.com",
+                  "Taxation": "patent",
+                  "Items": [
+                      {
+                          "Name": name,
+                          "Price": amount + '00',
+                          "Quantity": 1.00,
+                          "Amount": amount + '00',
+                          "PaymentMethod": "full_prepayment",
+                          "PaymentObject": "service",
+                          "Tax": "none"
+                      }
+                  ]
+              });
+              pay(form);
+          } else alert("Не все обязательные поля заполнены")
+          return false;
+      }
+</script>
+
+
+
+{% endblock %}

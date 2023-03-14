@@ -1,0 +1,71 @@
+:root {
+    --pink-color: #E898FF;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+}
+
+.sign-up-section {
+    position: relative;
+    height: 100vh;
+}
+
+.sign-up {
+    position: absolute;
+    padding-top: 10px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.sign {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+    color: black;
+}
+
+.form-group-sign-up {
+    text-align: start;
+    font-size: 17px;
+    font-weight: 100;
+}
+
+.form-control-sign-up {
+    font-size: 17px;
+    text-align: start;
+    width: 100%;
+    padding: 5px 10px;    
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #000000;
+}
+
+.form-control-sign-up:focus {
+    outline: none;
+}
+
+.sign-up-submit{
+        width: 100%;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        background-color: #000000;
+        color: #FFFFFF;
+        padding: 10px;
+        font-size: 20px;
+        align-items: center;
+        cursor: pointer;
+}

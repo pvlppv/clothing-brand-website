@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block title %}LOGIN{% endblock %}
+{%block header%}
+{%endblock%}
+{% block content %}
+<section class="login-section">
+  <div class="login">
+    <div class="login-text">Login</div>
+    <form method="POST">
+      <div class="form-group-login-group">
+        <div class="form-group-login">
+          <br>
+          <input
+            type="email"
+            class="form-control-login"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group-login">
+          <br>
+          <input
+            type="password"
+            class="form-control-login"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+          />  
+        </div>
+      </div>
+      <input type="checkbox" name="remember_me">Remember Me
+      <button type="submit" class="login-submit">Login</button>
+      <a class="signbtn" href="{{ url_for('auth.signup') }}">SIGN UP</a>
+    </form>      
+  </div>
+</section>
+{% endblock %}

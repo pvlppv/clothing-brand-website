@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+{% block preloader %}
+{% endblock %}
+{% block content %}
+<section class="product-card-section">
+    <div class="product-card-preview">
+        <a href="javascript:void(0)" onclick="window.history.back();" class="product-card-back">
+            <i class='bx bxs-left-arrow-alt'></i>
+            <p>Back</p>
+        </a>
+        <div class="product-card-left-section">
+            <div class="product-card-title">{{ product.name }}</div>
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-showcase">
+                        <img src="static/images/{{ product.img }}" alt="shoe image">
+                        <img src="static/images/{{ product.featured_1 }}" alt="shoe image">
+                        <img src="static/images/{{ product.featured_2 }}" alt="shoe image">
+                        <img src="static/images/{{ product.featured_3 }}" alt="shoe image">
+                    </div>
+                </div>
+                <div class="img-select">
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img src="static/images/{{ product.img }}" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="2">
+                            <img src="static/images/{{ product.featured_1 }}" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="3">
+                            <img src="static/images/{{ product.featured_2 }}" alt="shoe image">
+                        </a>
+                    </div>
+                    <div class="img-item">
+                        <a href="#" data-id="4">
+                            <img src="static/images/{{ product.featured_3 }}" alt="shoe image">
+                        </a>
+                    </div>
+                </div>
+            </div>          
+        </div>
+        <div class="product-card-right-section">
+            <div class="product-card-price">
+                <div class="product-card-price-new">{{ product.price_new }} р.</div>
+                <div class="product-card-price-old">{{ product.price_old }} р.</div>
+            </div>
+            <pre class="product-card-description-materials">{{ product.description }}</pre>
+            <pre name="product-id" id="{{ product.id }}" hidden>{{ product.id }}</pre>
+            <div class="product-card-size">
+                <div class="product-card-choose-size">ВЫБРАТЬ РАЗМЕР:</div>
+                <div class="product-card-choose-size-2">
+                    <div class="product-card-size-S">S</div>
+                    <div class="product-card-size-M">M</div>
+                    <div class="product-card-size-L">L</div>
+                    <div class="product-card-size-XL">XL</div>
+                </div>    
+            </div>
+            <button class="product-card-buy">ДОБАВИТЬ В КОРЗИНУ</button>
+        </div>
+        <!-- <div class="product-card-right-section">
+            <a class="product-card-featured" href="/">
+                <img src="static/images/{{ product.featured_1 }}" alt="" class="product-card-featured-img">
+                <img src="static/images/rectangle-pink.svg" alt="" class="rectangle-pink">
+            </a>
+            <a class="product-card-featured" href="/">
+                <img src="static/images/{{ product.featured_2 }}" alt="" class="product-card-featured-img">
+                <img src="static/images/rectangle-pink.svg" alt="" class="rectangle-pink">
+            </a>
+            <a class="product-card-featured" href="/">
+                <img src="static/images/{{ product.featured_3 }}" alt="" class="product-card-featured-img">
+                <img src="static/images/rectangle-pink.svg" alt="" class="rectangle-pink">
+            </a>
+        </div> -->
+    </div>
+
+</section>    
+{% endblock %}
